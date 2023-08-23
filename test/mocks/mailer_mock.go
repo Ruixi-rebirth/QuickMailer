@@ -1,6 +1,6 @@
 package mocks
 
-import "my-email-tool/pkg/email"
+import "github.com/Ruixi-rebirth/QuickMailer/pkg/email"
 
 type MockMailer struct {
 	SentMessages []Message
