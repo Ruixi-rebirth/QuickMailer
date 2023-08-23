@@ -1,7 +1,7 @@
 package test
 
 import (
-	"my-email-tool/pkg/config"
+	"github.com/Ruixi-rebirth/QuickMailer/pkg/config"
 	"testing"
 )
 
