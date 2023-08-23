@@ -1,0 +1,12 @@
+{
+  "filePaths": ["testpath1.txt", "testpath2.txt"],
+  "senderEmail": "test@example.com",
+  "senderPassword": "testpassword",
+  "receivers": [
+    {
+      "name": "Test Receiver",
+      "email": "receiver@test.com"
+    }
+  ],
+  "subject": "Test Subject"
+}
