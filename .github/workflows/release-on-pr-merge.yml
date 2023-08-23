@@ -29,6 +29,12 @@ jobs:
       - name: Run Tests
         run: go test ./...
 
+      - name: Create Git Tag
+        run: |
+          TAG_NAME=v$(date +'%Y%m%d%H%M%S')
+          git tag $TAG_NAME
+          git push origin $TAG_NAME
+
       - name: Create and Upload Release
         uses: softprops/action-gh-release@v1
         with:
