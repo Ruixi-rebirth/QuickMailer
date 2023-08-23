@@ -24,12 +24,12 @@ jobs:
         run: go test ./...
 
       - name: Create Release
-        uses: gh-actions/create-release@v1.0.0
+        id: create_release
+        uses: actions/create-release@v1
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          tag: v${{ github.run_number }}
-          name: Release ${{ github.run_number }}
-          body: "New changes merged into master."
+          tag_name: v${{ github.run_number }}
+          release_name: Release ${{ github.run_number }}
+          body: New changes merged into master.
           draft: false
           prerelease: false
 
