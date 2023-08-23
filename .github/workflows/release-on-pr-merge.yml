@@ -1,0 +1,38 @@
+name: Release on PR Merge
+
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  release-on-merge:
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+
+      - name: Set up Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: 1.2
+
+      - name: Build binaries
+        run: |
+          GOOS=darwin GOARCH=amd64 go build -o builds/email-tool-mac-amd64
+          GOOS=darwin GOARCH=386 go build -o builds/email-tool-mac-386
+          GOOS=linux GOARCH=amd64 go build -o builds/email-tool-linux-amd64
+          GOOS=linux GOARCH=386 go build -o builds/email-tool-linux-386
+          GOOS=windows GOARCH=amd64 go build -o builds/email-tool-win-amd64.exe
+          GOOS=windows GOARCH=386 go build -o builds/email-tool-win-386.exe
+
+      - name: Run Tests
+        run: go test ./...
+
+      - name: Create and Upload Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: builds/*
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
