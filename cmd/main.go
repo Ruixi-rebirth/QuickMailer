@@ -1,10 +1,10 @@
 package main
 
 import (
+	"github.com/Ruixi-rebirth/QuickMailer/pkg/config"
+	"github.com/Ruixi-rebirth/QuickMailer/pkg/email"
+	"github.com/Ruixi-rebirth/QuickMailer/pkg/utils"
 	"log"
-	"my-email-tool/pkg/config"
-	"my-email-tool/pkg/email"
-	"my-email-tool/pkg/utils"
 )
 
 func main() {

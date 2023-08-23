@@ -1,6 +1,6 @@
 package email
 
-import "my-email-tool/pkg/config"
+import "github.com/Ruixi-rebirth/QuickMailer/pkg/config"
 
 func SendEmails(cfg *config.Config, mailer Mailer) error {
 	for _, receiver := range cfg.Receivers {

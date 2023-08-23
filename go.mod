@@ -1,4 +1,4 @@
-module my-email-tool
+module github.com/Ruixi-rebirth/QuickMailer
 
 go 1.20
 
