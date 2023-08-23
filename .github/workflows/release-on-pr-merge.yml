@@ -32,6 +32,9 @@ jobs:
       - name: Create Git Tag
         run: |
           TAG_NAME=v$(date +'%Y%m%d%H%M%S')
+          echo "TAG_NAME=$TAG_NAME" >> $GITHUB_ENV
+          git config user.name 'GitHub Actions'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
           git tag $TAG_NAME
           git push origin $TAG_NAME
 
@@ -39,5 +42,6 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: builds/*
+          tag_name: ${{ env.TAG_NAME }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
