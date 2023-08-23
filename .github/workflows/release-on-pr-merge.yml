@@ -20,12 +20,12 @@ jobs:
 
       - name: Build binaries
         run: |
-          GOOS=darwin GOARCH=amd64 go build -o builds/email-tool-mac-amd64
-          GOOS=darwin GOARCH=386 go build -o builds/email-tool-mac-386
-          GOOS=linux GOARCH=amd64 go build -o builds/email-tool-linux-amd64
-          GOOS=linux GOARCH=386 go build -o builds/email-tool-linux-386
-          GOOS=windows GOARCH=amd64 go build -o builds/email-tool-win-amd64.exe
-          GOOS=windows GOARCH=386 go build -o builds/email-tool-win-386.exe
+          GOOS=darwin GOARCH=amd64 go build -o builds/email-tool-mac-amd64 ./cmd
+          GOOS=darwin GOARCH=386 go build -o builds/email-tool-mac-386 ./cmd
+          GOOS=linux GOARCH=amd64 go build -o builds/email-tool-linux-amd64 ./cmd
+          GOOS=linux GOARCH=386 go build -o builds/email-tool-linux-386 ./cmd
+          GOOS=windows GOARCH=amd64 go build -o builds/email-tool-win-amd64.exe ./cmd
+          GOOS=windows GOARCH=386 go build -o builds/email-tool-win-386.exe ./cmd
 
       - name: Run Tests
         run: go test ./...
