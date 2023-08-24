@@ -1,0 +1,12 @@
+filePaths = ["path/to/file1.txt", "path/to/file2.txt"]
+senderEmail = "your_email@qq.com"
+senderPassword = "your_password"
+subject = "Your Subject"
+
+[[receivers]]
+name = "Receiver1Name"
+email = "receiver1_email@example.com"
+
+[[receivers]]
+name = "Receiver2Name"
+email = "receiver2_email@example.com"

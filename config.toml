@@ -1,0 +1,25 @@
+filePaths = ["file1.doc","file2.doc"]
+senderEmail = "2764908197@qq.com"
+senderPassword = "wgxqkqzfrpxwddaa"
+subject = "网络20-1-13陆鑫"
+
+[[receivers]]
+name = "Receiver1Name"
+email = "receiver1_email@example.com"
+
+[[receivers]]
+name = "Receiver2Name"
+email = "receiver2_email@example.com"
+
+[[receivers]]
+name = "Receiver1Name"
+email = "receiver1_email@example.com"
+
+#filePaths = ["./实习周记-网络20-1-13陆鑫.doc"]
+#senderEmail = "2764908197@qq.com"
+#senderPassword = "wgxqkqzfrpxwddaa"
+#subject = "网络20-1-13-陆鑫"
+#
+#[[receivers]]
+#name = "陈微"
+#email = "441959138@qq.com"

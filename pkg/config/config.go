@@ -1,21 +1,21 @@
 package config
 
 import (
-	"encoding/json"
+	"github.com/BurntSushi/toml"
 	"os"
 )
 
-type Config struct {
-	FilePaths      []string   `json:"filePaths"`
-	SenderEmail    string     `json:"senderEmail"`
-	SenderPassword string     `json:"senderPassword"`
-	Receivers      []Receiver `json:"receivers"`
-	Subject        string     `json:"subject"`
+type Receiver struct {
+	Name  string `toml:"name"`
+	Email string `toml:"email"`
 }
 
-type Receiver struct {
-	Name  string `json:"name"`
-	Email string `json:"email"`
+type Config struct {
+	FilePaths      []string   `toml:"filePaths"`
+	SenderEmail    string     `toml:"senderEmail"`
+	SenderPassword string     `toml:"senderPassword"`
+	Receivers      []Receiver `toml:"receivers"`
+	Subject        string     `toml:"subject"`
 }
 
 func LoadConfig(path string) (*Config, error) {
@@ -26,9 +26,7 @@ func LoadConfig(path string) (*Config, error) {
 	defer file.Close()
 
 	var cfg Config
-	decoder := json.NewDecoder(file)
-	err = decoder.Decode(&cfg)
-	if err != nil {
+	if _, err := toml.DecodeReader(file, &cfg); err != nil {
 		return nil, err
 	}
 

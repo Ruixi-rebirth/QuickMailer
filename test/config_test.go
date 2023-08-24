@@ -6,7 +6,7 @@ import (
 )
 
 func TestLoadConfig(t *testing.T) {
-	cfg, err := config.LoadConfig("../config/test_config.json")
+	cfg, err := config.LoadConfig("../config/test_config.toml")
 	if err != nil {
 		t.Fatalf("Failed to load test config: %v", err)
 	}

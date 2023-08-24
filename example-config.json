@@ -1,7 +1,0 @@
-{
-  "filePaths": ["/path/to/file"],
-  "senderEmail": "xxx@qq.com",
-  "senderPassword": "xxx",
-  "receivers": [{ "name": "xxx", "email": "xxx@qq.com" }],
-  "subject": "xxx"
-}

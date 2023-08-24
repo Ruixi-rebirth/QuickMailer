@@ -12,7 +12,7 @@ func Current_Dir_Config_Path() (config_path string) {
 		log.Fatal(err)
 	}
 
-	config_path = filepath.Join(workDir, "config.json")
+	config_path = filepath.Join(workDir, "config.toml")
 	_, err = os.Stat(config_path)
 	if os.IsNotExist(err) {
 		log.Fatalf("Can't find file：%v", config_path)
