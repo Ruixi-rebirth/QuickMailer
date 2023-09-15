@@ -1,6 +1,10 @@
 package email
 
-import "gopkg.in/gomail.v2"
+import (
+	"gopkg.in/gomail.v2"
+	"mime"
+	"path/filepath"
+)
 
 type RealMailer struct {
 	Dialer *gomail.Dialer
@@ -22,7 +26,9 @@ func (r *RealMailer) SendEmail(from, to, subject, body string, filePaths []strin
 	}
 
 	for _, path := range filePaths {
-		m.Attach(path)
+		_, fileName := filepath.Split(path) // 提取文件名
+		encodedFilename := mime.QEncoding.Encode("utf-8", fileName)
+		m.Attach(path, gomail.Rename(encodedFilename))
 	}
 	return r.Dialer.DialAndSend(m)
 }
